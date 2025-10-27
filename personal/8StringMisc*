@@ -1,0 +1,5 @@
+userInput = input("Please enter a string: ")
+print("\nString: " + userInput)
+print("Length of String: " + str(len(userInput)))
+print("The String reversed: " + userInput[::-1])
+print("The 3rd through 7th characters are: " + (userInput[2:7]))

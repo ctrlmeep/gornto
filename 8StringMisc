@@ -8,9 +8,8 @@
 #the 3rd-7th  characters displayed
 
 userInput = input("Please enter a string: ") #string input
-print()
 
-print("String: " + userInput) #reprinting string
+print("\nString: " + userInput) #reprinting string
 
 print("Length of String: " + str(len(userInput))) #printing length of string
 

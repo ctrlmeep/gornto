@@ -5,40 +5,40 @@
 sideLength = int(input("What is the side length of a triangle? ")) #input
 print()
 
-for rows in range(0, sideLength):
-    for columns in range(0, rows + 1):
+for n in range(0, sideLength):
+    for m in range(0, n + 1):
         print("* ", end = "")
     print()
 print()
 
-for rows in range(sideLength, 0, -1):
-    for columns in range(rows, 0, -1):
+for n in range(sideLength, 0, -1):
+    for m in range(n, 0, -1):
         print("* ", end = "")
     print()
 print()
 
-for rows in range(0, sideLength):
-    for columns in range((sideLength - rows - 1), 0, -1):
+for n in range(0, sideLength):
+    for m in range((sideLength - n - 1), 0, -1):
         print("  ", end = "")
-    for columns in range(0, rows + 1):
+    for m in range(0, n + 1):
         print("* ", end = "")
     print()
 print()
 
-for rows in range(0, sideLength):
-    for columns in range(0, rows):
+for n in range(0, sideLength):
+    for m in range(0, n):
         print("  ", end = "")
-    for columns in range((sideLength - rows), 0, -1):
+    for m in range((sideLength - n), 0, -1):
         print("* ", end = "")
     print()
 
 # Alternate Method (Not talked about in class yet)
 
-#for rows in range(0, sideLength):
-#    print("  " * (sideLength - rows - 1) + "* " * (rows + 1))
+#for n in range(0, sideLength):
+#    print("  " * (sideLength - n - 1) + "* " * (n + 1))
 #print()
 #
-#for rows in range(sideLength, 0 , -1):
-#    print("  " * (sideLength - rows) + "* " * rows)
+#for n in range(sideLength, 0 , -1):
+#    print("  " * (sideLength - n) + "* " * n)
 #print()
 

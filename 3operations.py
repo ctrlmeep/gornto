@@ -14,14 +14,16 @@ first_number = int(input("What is the first number? "))
 second_number = int(input("What is the second number? "))
 print()
 
-sum_result = first_number + second_number
-difference_result = first_number - second_number
-product_result = first_number * second_number
-quotient_result = first_number / second_number
-modulus_result = first_number % second_number
+sum_result = str(first_number + second_number)
+difference_result = str(first_number - second_number)
+product_result = str(first_number * second_number)
+quotient_result = str(first_number / second_number)
+modulus_result = str(first_number % second_number)
+first_number = str(first_number)
+second_number = str(second_number)
 
-print(str(first_number) + " + " + str(second_number) + " = " + str(sum_result))
-print(str(first_number) + " - " + str(second_number) + " = " + str(difference_result))
-print(str(first_number) + " * " + str(second_number) + " = " + str(product_result))
-print(str(first_number) + " / " + str(second_number) + " = " + str(quotient_result))
-print(str(first_number) + " mod " + str(second_number) + " = " + str(modulus_result))
+print((first_number) + " - " + (second_number) + " = " + (difference_result))
+print((first_number) + " * " + (second_number) + " = " + (product_result))
+print((first_number) + " / " + (second_number) + " = " + (quotient_result))
+print((first_number) + " mod " + (second_number) + " = " + (modulus_result))
+print((first_number) + " + " + (second_number) + " = " + (sum_result))

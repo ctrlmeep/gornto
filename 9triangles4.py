@@ -41,4 +41,3 @@ for n in range(0, sideLength):
 #for n in range(sideLength, 0 , -1):
 #    print("  " * (sideLength - n) + "* " * n)
 #print()
-

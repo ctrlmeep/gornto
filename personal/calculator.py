@@ -1,5 +1,7 @@
 #simple 4 function calculator (additionally with exponentiation, root, and modulus)
 #with checks for dividing by zero and for improper inputs
+import random
+
 def get_valid_number(prompt):
     while True:
         try:
@@ -18,6 +20,10 @@ def get_operation():
     print("% : Modulus")
     print("! : Factorial")
     operation = input("\nEnter the operation symbol (+, -, *, /, ^, r, %, !): ").strip()
+
+    if operation == "I'm feeling lucky!":
+        operation = random.choice(['+', '-', '*', '/', '^', 'r', '%', '!'])
+        print("\nYou said you were feeling lucky! So you were given a random operation!\n\nYour operation is:", operation)
 
     return operation
 

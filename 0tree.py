@@ -1,6 +1,6 @@
-#Name: B**** L*****
-#due date
-#tree - prints a basic tree
+#Name: ************
+#Due Date: N/A
+#Program Description: Prints a basic tree
 print("     *")
 print("    ***")
 print("   *****")

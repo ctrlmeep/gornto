@@ -1,7 +1,6 @@
-#Name: B**** L*****
-#Due: 9/18/25
-#Shapes - prints a basic rectangle, hexagon, arrow, and rhombus
-#using asterisks (*)
+#Name: ************
+#Due Date: 9/18/25
+#Program Description: Prints a basic rectangle, hexagon, arrow, and rhombus using asterisks (*)
 
 print("*****")
 print("*   *")

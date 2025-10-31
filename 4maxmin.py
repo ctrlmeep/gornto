@@ -1,9 +1,9 @@
-#Name: B**** L*****
+#Name: ************
+#Due Date: 10/10/25
 #Program Description: Write an application (MaxMin4) that reads the input of five integers and
 #determines and prints the largest , the smallest and the mean of the group.
 #Use only the programming techniques that have been discussed in the class so far.
 #Comment your code!
-#Due: 10/10/25
 
 #inputs
 firstNumber = int(input("Please enter in first number: "))

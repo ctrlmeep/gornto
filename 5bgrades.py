@@ -1,15 +1,10 @@
-#Name: B**** L*****
+#Name: ************
 #Due Date: 10/16/25
-#Description: A Class of n students
-#took a quiz.  The integer grades (0-100)
-#are available to you.  Determine the
-#class average using a while loop.
-#Only programming techniques that have been
-#discussed in class may be used.
-#change grades5 so that it "error proofs" the inputs
-#acceptable number of students is between 1 and 25
-#acceptable grades are 0-100
-#also as the grades are input it should tell what grade is being input.
+#Program Description: A Class of n students took a quiz.  The integer grades (0-100)
+#are available to you.  Determine the class average using a while loop.
+#Only programming techniques that have been discussed in class may be used.
+#change grades5 so that it "error proofs" the inputs acceptable number of students is between 1 and 25
+#acceptable grades are 0-100 also as the grades are input it should tell what grade is being input.
 #Enter grade 1:
 #Enter grade 2:
 #...

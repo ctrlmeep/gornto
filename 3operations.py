@@ -1,11 +1,11 @@
-# Name: B**** L*****
-# Due: 10/01/25
-# Write an application that asks the user for the input of the user's name and then
-# displays a greeting to the user.
-# The application that asks the user for the input of 2 integer values.
-# The application will calculate the sum, difference, product, quotient, and modulus
-# of the two numbers and will display them as a math sentence to the screen on separate lines.
-# Be sure to properly comment your code.
+#Name: ************
+#Due Date: 10/01/25
+#Program Description: Write an application that asks the user for the input of the user's name and then
+#displays a greeting to the user.
+#The application that asks the user for the input of 2 integer values.
+#The application will calculate the sum, difference, product, quotient, and modulus
+#of the two numbers and will display them as a math sentence to the screen on separate lines.
+#Be sure to properly comment your code.
 
 name = input("What is your name? ")
 print("Greetings, " + name + "!")

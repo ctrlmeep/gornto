@@ -1,6 +1,6 @@
-#B**** L*****
-#Due: 9/19/25
-#Write an application that asks for and stores four integers.
+#Name: ************
+#Due Date: 9/19/25
+#Program Description: Write an application that asks for and stores four integers.
 #Then displays the numbers on the same line, with each pair separated by one
 #space.  (horizontally on one line.)
 #It will display the numbers vertically on separate lines

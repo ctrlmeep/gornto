@@ -1,6 +1,6 @@
 #Name: Benny Landon
 #Due Date: 10/29/25
-#Program Description: Asks for the side length of a triangle and prints a triangle using asterisks.
+#Program Description: Asks for the side length of a triangle and prints a triangle using asterisks but reversed.
 
 sideLength = int(input("What is the side length of a triangle? ")) #input
 print()

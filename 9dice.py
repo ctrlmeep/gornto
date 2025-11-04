@@ -14,13 +14,13 @@
 #After the program has run, it will display the number of each and the percentage of each.
 #See the sample output in class.
 
+#APIs
 import random
 
+#Inputs
 rolls = input("How many rolls would you like? ")
 
-print("\nRolls\tDie1\tDie2\tComments")
-print("-----\t----\t----\t--------")
-
+#Variable Declaration
 snakeEyes = 0
 ballerina = 0
 brooklynForest = 0
@@ -28,11 +28,16 @@ squarePair = 0
 puppyToes = 0
 boxCars = 0
 
+#Chart Header Printing
+print("\nRolls\tDie1\tDie2\tComments")
+print("-----\t----\t----\t--------")
+
+#Chart Body Printing
 for i in range(int(rolls)):
     roll1 = random.randint(1, 6)
     roll2 = random.randint(1, 6)
     comment = ""
-    if roll1 == roll2:
+    if roll1 == roll2: #Comment Evaluater
         if roll1 == 1:
             comment = "Snake Eyes"
             snakeEyes += 1
@@ -52,9 +57,11 @@ for i in range(int(rolls)):
             comment = "Box Cars"
             boxCars += 1
 
-    print(str((i + 1)) + "\t" + str(roll1) + "\t" + str(roll2) + "\t" + comment)
+    print(str((i + 1)) + "\t" + str(roll1) + "\t" + str(roll2) + "\t" + comment) #Individual Line Printing
+print()
 
-print("\nThe number of Snake Eyes: " + str(snakeEyes) + "\t\tPercent of Snake Eyes: " + str(round(snakeEyes / int(rolls) * 100, 1)))
+#Results Printing (Percent Formula: counter / total rolls * 100)
+print("The number of Snake Eyes: " + str(snakeEyes) + "\t\tPercent of Snake Eyes: " + str(round(snakeEyes / int(rolls) * 100, 1)))
 print("The number of Ballerina: " + str(ballerina) + "\t\tPercent of Ballerina: " + str(round(ballerina / int(rolls) * 100, 1)))
 print("The number of Brooklyn Forest: " + str(brooklynForest) + "\tPercent of Brooklyn Forest: " + str(round(brooklynForest / int(rolls) * 100, 1)))
 print("The number of Square Pair: " + str(squarePair) + "\t\tPercent of Square Pair: " + str(round(squarePair / int(rolls) * 100, 1)))

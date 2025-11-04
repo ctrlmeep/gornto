@@ -1,4 +1,4 @@
-#Name: Benny Landon
+#Name: ************
 #Due Date: 10/29/25
 #Program Description: Asks for the side length of the triangles and the number of triangles and prints the number of triangles using asterisks.
 

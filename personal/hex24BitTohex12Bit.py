@@ -7,5 +7,5 @@ while True:
     g = round(int(hex24[2:4], 16) / 255 * 15)
     b = round(int(hex24[4:6], 16) / 255 * 15)
 
-    hex12 = f"{r:X}{g:X}{b:X}"
+    hex12 = f"{r:x}{g:x}{b:x}"
     print(hex12)

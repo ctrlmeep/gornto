@@ -1,11 +1,7 @@
-#Name: B**** L*****
+#Name: ************
 #Due Date: 10/28/25
 #Program Description: Create an application named StringMisc8 that reads in a string from the user.
-#Outputs:
-#the string
-#length of string
-#the string reversed (using methods discussed in class)
-#the 3rd-7th  characters displayed
+#Outputs: the string, length of string, the string reversed (using methods discussed in class), the 3rd-7th  characters displayed
 
 userInput = input("Please enter a string: ") #string input
 

@@ -1,5 +1,5 @@
-# Name: Benny Landon
-# Due Date:
+# Name: ************
+# Due Date: 11/4/25
 # Program Description
 
 import random
@@ -42,10 +42,10 @@ for i in range(int(rolls)):
 
     print(str((i + 1)) + "\t" + str(roll1) + "\t" + str(roll2) + "\t" + comment)
 
-print("\nThe number of Snake Eyes: " + str(snakeEyes) + "\t\t\tPercent of Snake Eyes: " + str(round(snakeEyes / int(rolls) * 100, 1)))
-print("The number of Ballerina: " + str(ballerina) + "\t\t\tPercent of Ballerina: " + str(round(ballerina / int(rolls) * 100, 1)))
-print("The number of Brooklyn Forest: " + str(brooklynForest) + "\t\tPercent of Brooklyn Forest: " + str(round(brooklynForest / int(rolls) * 100, 1)))
-print("The number of Square Pair: " + str(squarePair) + "\t\t\tPercent of Square Pair: " + str(round(squarePair / int(rolls) * 100, 1)))
-print("The number of Puppy Toes: " + str(puppyToes) + "\t\t\tPercent of Puppy Toes: " + str(round(puppyToes / int(rolls) * 100, 1)))
-print("The number of Box Cars: " + str(boxCars) + "\t\t\tPercent of Box Cars: " + str(round(boxCars / int(rolls) * 100, 1)))
+print("\nThe number of Snake Eyes: " + str(snakeEyes) + "\t\tPercent of Snake Eyes: " + str(round(snakeEyes / int(rolls) * 100, 1)))
+print("The number of Ballerina: " + str(ballerina) + "\t\tPercent of Ballerina: " + str(round(ballerina / int(rolls) * 100, 1)))
+print("The number of Brooklyn Forest: " + str(brooklynForest) + "\tPercent of Brooklyn Forest: " + str(round(brooklynForest / int(rolls) * 100, 1)))
+print("The number of Square Pair: " + str(squarePair) + "\t\tPercent of Square Pair: " + str(round(squarePair / int(rolls) * 100, 1)))
+print("The number of Puppy Toes: " + str(puppyToes) + "\t\tPercent of Puppy Toes: " + str(round(puppyToes / int(rolls) * 100, 1)))
+print("The number of Box Cars: " + str(boxCars) + "\t\tPercent of Box Cars: " + str(round(boxCars / int(rolls) * 100, 1)))
 

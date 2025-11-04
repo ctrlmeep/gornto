@@ -1,6 +1,18 @@
-# Name: ************
-# Due Date: 11/4/25
-# Program Description
+#Name: ************
+#Due Date: 11/4/25
+#Program Description: Write a python program that will simulate a pair of 6 sided dice being rolled. The user will determine how many rolls are necessary.
+#Input will be how many times the user wishes to roll. Output will be the roll number, the roll of each die and comment (below)
+
+#If the dice rolled are both:
+#1  “Snake Eyes”
+#2  “Ballerina”
+#3  “Brooklyn Forest”
+#4  “Square Pair”
+#5  “Puppy Toes”
+#6  “Boxcars”
+
+#After the program has run, it will display the number of each and the percentage of each.
+#See the sample output in class.
 
 import random
 

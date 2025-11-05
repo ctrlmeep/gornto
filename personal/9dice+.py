@@ -1,6 +1,7 @@
 import random
 
 rolls = input("How many rolls would you like? ")
+sides = int(input("How many sides are on the dice? "))
 
 print("\nRolls\tDie1\tDie2\tComments")
 print("-----\t----\t----\t--------")
@@ -15,13 +16,16 @@ pairs_data = {
 }
 
 for i in range(int(rolls)):
-    roll1 = random.randint(1, 6)
-    roll2 = random.randint(1, 6)
+    roll1 = random.randint(1, sides)
+    roll2 = random.randint(1, sides)
     comment = ""
 
     if roll1 == roll2:
-        comment = pairs_data[roll1]["name"]
-        pairs_data[roll1]["count"] += 1
+        if roll1 <= 6:
+            comment = pairs_data[roll1]["name"]
+            pairs_data[roll1]["count"] += 1
+        else:
+            comment = ""
 
     print(f"{i + 1}\t{roll1}\t{roll2}\t{comment}")
 

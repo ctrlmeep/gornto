@@ -2,7 +2,7 @@
 import random
 
 #input
-rolls = input("How many rolls would you like? ")
+rolls = int(input("How many rolls would you like? "))
 sides = int(input("How many sides are on the dice? "))
 
 #pair definitions
@@ -18,7 +18,7 @@ pairs_data = {
 #chart printing
 print("\nRolls\tDie1\tDie2\tComments")
 print("-----\t----\t----\t--------")
-for i in range(int(rolls)):
+for i in range(rolls):
     roll1 = random.randint(1, sides)
     roll2 = random.randint(1, sides)
     comment = ""

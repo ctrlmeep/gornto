@@ -22,12 +22,5 @@ for rows in range(0, sideLength):
 print()
 
 for rows in range(sideLength, 0 , -1):
-    print("  " * (sideLength - rows) + "* " * (rows))
+    print("  " * (sideLength - rows) + "* " * rows)
 print()
-
-for rows in range(0, sideLength):
-    for columns in range(0, rows + 1):
-        print(" -", end = "")
-    for columns in range(rows + 1, 0 , -1):
-        print(" *", end = "")
-    print()

@@ -1,11 +1,11 @@
+#APIs
 import random
 
+#input
 rolls = input("How many rolls would you like? ")
 sides = int(input("How many sides are on the dice? "))
 
-print("\nRolls\tDie1\tDie2\tComments")
-print("-----\t----\t----\t--------")
-
+#pair definitions
 pairs_data = {
     1: {"name": "Snake Eyes", "count": 0, "indents": 3},
     2: {"name": "Ballerina", "count": 0, "indents": 3},
@@ -15,6 +15,9 @@ pairs_data = {
     6: {"name": "Box Cars", "count": 0, "indents": 3}
 }
 
+#chart printing
+print("\nRolls\tDie1\tDie2\tComments")
+print("-----\t----\t----\t--------")
 for i in range(int(rolls)):
     roll1 = random.randint(1, sides)
     roll2 = random.randint(1, sides)
@@ -31,6 +34,7 @@ for i in range(int(rolls)):
 
 print()
 
+#results printing
 for die_value in range(1, 7):
     count = pairs_data[die_value]["count"]
     name = pairs_data[die_value]["name"]

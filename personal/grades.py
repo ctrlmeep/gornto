@@ -4,7 +4,6 @@ import json
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
 
-
 def export_json():
     filename = input("\nEnter filename (or press Enter for 'gradebook_export.json'): ").strip()
     if not filename:

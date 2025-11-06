@@ -1,7 +1,30 @@
 import os
+import json
 
 def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def export_json():
+    filename = input("\nEnter filename (or press Enter for 'gradebook_export.json'): ").strip()
+    if not filename:
+        filename = "gradebook_export.json"
+    elif not filename.endswith(".json"):
+        filename += ".json"
+
+    full_path = os.path.abspath(filename)
+    print(f"\nFile will be saved to: {full_path}")
+
+    confirm = input("\nIs this OK? (Y/n): ").strip().lower()
+    if confirm == "y" or confirm == "":
+        try:
+            with open(filename, "w") as outputFile:
+                json.dump(students, outputFile)
+            print(f"\nSuccessfully exported to {full_path}")
+        except Exception as e:
+            print(f"\nError: {e}")
+    else:
+        print("\nExport cancelled.")
 
 students = {}
 
@@ -38,32 +61,61 @@ def display_student(name):
 
 
 if __name__ == "__main__":
+    try:
+        with open("gradebook.json", "r") as file:
+            students = json.load(file)
+    except FileNotFoundError:
+        with open("gradebook.json", "w") as file:
+            json.dump(students, file)
+    finally:
+        with open("gradebookBackUp.json", "w") as file:
+            json.dump(students, file)
+
     while True:
         clear_screen()
         print()
-        print("=" * 40)
-        print("GRADE TRACKER")
-        print("=" * 40)
+        headerBorderWidth = int(40)
+        print("=" * headerBorderWidth)
+        print(" " * ((headerBorderWidth - 13) // 2) + "GRADE  TRACKER")
+        print("=" * headerBorderWidth)
         display_all()
-        print("-" * 40)
-        print("What would you like to do?")
-        print("1. Add student")
-        print("2. Add grade")
-        print("3. Display Student's Grades")
-        print("4. Display Student's Grade Average")
-        print("5. Exit")
-        print("-" * 40)
+        print("-" * headerBorderWidth)
+        print("\nWhat would you like to do?\n")
+        print("1.\tAdd student")
+        print("2.\tAdd grade")
+        print("3.\tDisplay Student's Grades")
+        print("4.\tDisplay Student's Grade Average")
+        print("5.\tSave Student's Grades")
+        print("6.\tLoad Student's Grades (For debugging - Program automatically loads saved grades on start.)")
+        print("7.\tClear/Delete Student's Grades")
+        print("8.\tSave and Exit")
+        print("9.\tExit (Without Saving)")
+        print("10.\tExport")
+        print("-" * headerBorderWidth)
         choice = input("Enter your choice: ").strip()
-
-        if choice == "1":
-            add_student(input("\nEnter student name: "))
-        if choice == "2":
-            add_grade(input("\nEnter student name: "), int(input("\nEnter grade: ")))
+        if choice == "1": add_student(input("\nEnter student name: "))
+        if choice == "2": add_grade(input("\nEnter student name: "), int(input("\nEnter grade: ")))
         if choice == "3":
             display_student(input("\nEnter student name: "))
-            input("Press Enter to continue...")  # Pause so user can see result
+            input("\nPress Enter to continue...")
         if choice == "4":
             print(get_average(input("\nEnter student name: ")))
-            input("Press Enter to continue...")  # Pause so user can see result
+            input("\nPress Enter to continue...")
         if choice == "5":
+            with open("gradebook.json", "w") as file:
+                json.dump(students, file)
+        if choice == "6":
+            with open("gradebook.json", "r") as file:
+                students = json.load(file)
+        if choice == "7":
+            with open("gradebook.json", "w") as file:
+                students = {}
+        if choice == "8":
+            with open("gradebook.json", "w") as file:
+                json.dump(students, file)
             break
+        if choice == "9":
+            break
+        if choice == "10":
+            print(f"\nCurrent directory: {os.getcwd()}")
+            export_json()

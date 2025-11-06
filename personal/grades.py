@@ -27,10 +27,7 @@ def display_all():
     if students == {}:
         print("No students in grade book yet.")
     for name in students:
-        print(f"{name}: ", end="")
-        for grade in students[name]["grades"]:
-            print(grade, end=", ")
-        print()
+        print(f"{name}: {', '.join(str(grade) for grade in students[name]["grades"])}")
     print()
 
 def display_student(name):
@@ -70,5 +67,3 @@ if __name__ == "__main__":
             input("Press Enter to continue...")  # Pause so user can see result
         if choice == "5":
             break
-
-        input("\nPress Enter to continue...")

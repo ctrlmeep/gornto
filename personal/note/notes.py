@@ -51,14 +51,28 @@ def delete_note(name):
     os.remove(name)
     files.remove(name)
 
+def delete_note_command(command):
+    if command[:3] == "rm ":
+        name = command[3:]
+        delete_note(name)
+
 def print_files():
     for file in files:
         print(file)
 
 def load_files():
-
+    for file in os.listdir():
+        if file.endswith(".txt"):
+            files.append(file)
 
 if __name__ == "__main__":
+
+    if not os.getcwd().endswith(os.sep + "notesFolder"):
+        if not os.path.isdir("notesFolder"):
+            os.mkdir("notesFolder")
+        if os.path.isdir("notesFolder"):
+            os.chdir("notesFolder")
+    load_files()
 
     while True:
         clearScreen.clear_screen()
@@ -72,17 +86,21 @@ if __name__ == "__main__":
         print("2 - Open note")
         print("3 - Delete note")
         print("4 - Exit")
+        choice = input("\nEnter your choice: ").strip()
 
-        choice = int(input("\nEnter your choice: ").strip())
-        if choice == 1:
-            new_note(name = input("\nWhat would you like to name the note? "))
-        if choice == 2:
-            open_note(name = input("\nWhat note would you like to open? "))
-        if choice == 3:
-            delete_note(name = input("\nWhat note would you like to delete? "))
-        if choice == 4:
-            os.mkdir("notesFolder")
-            os.chdir("notesFolder")
-            for file in files:
-                export_txt()
-            break
+        try:
+            if int(choice) == 1:
+                new_note(name = input("\nWhat would you like to name the note? "))
+            if int(choice) == 2:
+                open_note(name = input("\nWhat note would you like to open? "))
+            if int(choice) == 3:
+                delete_note(name = input("\nWhat note would you like to delete? "))
+            if int(choice) == 4:
+                break
+        except ValueError:
+            try:
+                if choice[:3] == "rm ":
+                    delete_note(choice) # command system
+            except Exception(BaseException):
+                print("\nInvalid choice. Please try again.")
+                input("\nPress Enter to continue...")

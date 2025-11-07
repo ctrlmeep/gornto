@@ -53,8 +53,15 @@ def delete_note(name):
 
 def delete_note_command(command):
     if command[:3] == "rm ":
-        name = command[3:]
-        delete_note(name)
+        delete_note(command[3:])
+
+def new_note_command(command):
+    if command[:3] == "mk ":
+        new_note(command[3:])
+
+def open_note_command(command):
+    if command[:5] == "nano ":
+        open_note(command[5:])
 
 def print_files():
     for file in files:
@@ -82,25 +89,26 @@ if __name__ == "__main__":
         print_files()
         print("--------------------------")
         print("What would you like to do?")
-        print("1 - Add new note")
-        print("2 - Open note")
-        print("3 - Delete note")
-        print("4 - Exit")
+        print("1 - New note\t(mk)")
+        print("2 - Open note\t(nano)")
+        print("3 - Delete note\t(rm)")
+        print("4 - Exit\t(exit)")
+        print("\nEnter a number selection or try entering a command (Experimental)")
         choice = input("\nEnter your choice: ").strip()
 
-        try:
-            if int(choice) == 1:
-                new_note(name = input("\nWhat would you like to name the note? "))
-            if int(choice) == 2:
-                open_note(name = input("\nWhat note would you like to open? "))
-            if int(choice) == 3:
-                delete_note(name = input("\nWhat note would you like to delete? "))
-            if int(choice) == 4:
-                break
-        except ValueError:
-            try:
-                if choice[:3] == "rm ":
-                    delete_note(choice) # command system
-            except Exception(BaseException):
-                print("\nInvalid choice. Please try again.")
-                input("\nPress Enter to continue...")
+        if choice == "1":
+            new_note(name = input("\nWhat would you like to name the note? "))
+        if choice == "2":
+            open_note(name = input("\nWhat note would you like to open? "))
+        if choice == "3":
+            delete_note(name = input("\nWhat note would you like to delete? "))
+        if choice == "4":
+            break
+        if choice[:3] == "rm ":
+            delete_note_command(choice)
+        if choice[:3] == "mk ":
+            new_note_command(choice)
+        if choice[:5] == "nano ":
+            open_note_command(choice)
+        if choice.strip().lower() == "exit":
+            break

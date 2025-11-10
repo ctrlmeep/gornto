@@ -44,8 +44,18 @@ def mk(command):
 def open_file(command):
     """Open a file in nano editor specified in the command."""
     command_separation(command)
-    os.open(command, os.O_RDWR)
-    print(f"\nOpened file: {command}")
+    print("\nEnter text to append (or type 'exit' to quit): ")
+    with open(command, "r") as file:
+        content = file.read()
+        print(f"\nContent of {command}:\n")
+        print(content)
+        print("--- Start Editing ---")
+    while True:
+        edit = input()
+        if edit.lower() == "exit":
+            break
+        with open(command, "a") as file:
+            file.write(edit + "\n")
 
 def rm(command):
     """Delete a file specified in the command."""

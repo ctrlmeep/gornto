@@ -1,4 +1,5 @@
 class Car:
+    CONSUMPTION_RATE = 10 #fuel consumption rate per hour
     def __init__(self, make, speed):
         self.make = make
         self.speed = speed
@@ -6,14 +7,14 @@ class Car:
         self.__distance = 0 #fully private now with __ instead of just hidden with _
 
     def drive(self, hours):
-        if self.__fuel - hours * 10 < 0:
+        if self.__fuel - hours * Car.CONSUMPTION_RATE < 0:
             print("Not enough fuel!")
             return
         if hours < 0:
             print("Can't drive negative hours!")
             return
         self.__distance += self.speed * hours
-        self.__fuel -= hours * 10
+        self.__fuel -= hours * Car.CONSUMPTION_RATE
 
     def report(self):
         print(f"{self.make} has driven {self.__distance} miles with {self.__fuel} fuel remaining.")
@@ -50,14 +51,14 @@ class ElectricCar(Car):
         self.__battery = 100
 
     def drive(self, hours):
-        if self.__battery - hours * 10 < 0:
+        if self.__battery - hours * Car.CONSUMPTION_RATE < 0:
             print("Not enough battery!")
             return
         if hours < 0:
             print("Can't drive negative hours!")
             return
         self.set_distance(self.get_distance() + self.speed * hours)
-        self.__battery -= hours * 10
+        self.__battery -= hours * Car.CONSUMPTION_RATE
 
     def report(self):
         print(f"{self.make} has driven {self.get_distance()} miles with {self.__battery} battery remaining.")
@@ -81,14 +82,14 @@ class HybridCar(Car):
         self.set_fuel(HybridCar.MAX_FUEL)
 
     def drive(self, hours):
-        if (self.get_fuel() + self.__battery) - hours * 10 < 0:
+        if (self.get_fuel() + self.__battery) - hours * Car.CONSUMPTION_RATE < 0:
             print("Not enough fuel or battery!")
             return
         if hours < 0:
             print("Can't drive negative hours!")
             return
         self.set_distance(self.get_distance() + self.speed * hours)
-        self.__battery -= hours * 10
+        self.__battery -= hours * Car.CONSUMPTION_RATE
         if self.__battery < 0:
             self.set_fuel(self.get_fuel() - abs(self.__battery))
             self.set_battery(0)
@@ -111,7 +112,7 @@ class Garage:
 
     def add_car(self, car):
         if not isinstance(car, Car):
-            print("Only car can be added!")
+            print("Only cars can be added!")
             return
         self.cars.append(car) #add car to garage
 

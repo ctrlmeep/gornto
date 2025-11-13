@@ -86,12 +86,15 @@ def print_files():
     for file in os.listdir():
         print(file)
 
+def help():
+    """Display help information."""
+    print("\nAvailable Commands:")
+    for cmd in commandCatalog:
+        print(f"{cmd}: {commandCatalog[cmd]}")
+
 if __name__ == "__main__":
     while True:
         clear_screen()
-        print("Commands:\n")
-        for i in commandCatalog:
-            print(f"{i}: {commandCatalog[i]}")
         print_files()
         command = input("\nEnter a command ('help' for help and 'exit' to quit): ").strip()
         if command.lower() == "exit":

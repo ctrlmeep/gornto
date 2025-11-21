@@ -46,9 +46,10 @@ class Car:
 
 #subclass ElectricCar that inherits from Car, allows for code reuse with different data
 class ElectricCar(Car):
+    MAX_BATTERY = 100
     def __init__(self, make, speed):
         super().__init__(make, speed) #lets you use methods from parent class
-        self.__battery = 100
+        self.__battery = ElectricCar.MAX_BATTERY
 
     def drive(self, hours):
         if self.__battery - hours * Car.CONSUMPTION_RATE < 0:

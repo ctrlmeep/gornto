@@ -1,0 +1,16 @@
+print("What is the first number? ")
+val firstNumber = readln()
+println()
+print("What is the second number? ")
+val secondNumber = readln()
+println()
+print("What is the third number? ")
+val thirdNumber = readln()
+println()
+print("What is the fourth number? ")
+val fourthNumber = readln()
+println()
+
+println("\nThe four numbers are: $firstNumber, $secondNumber, $thirdNumber, $fourthNumber\n")
+val totalSum = firstNumber + secondNumber + thirdNumber + fourthNumber
+println("The sum is $totalSum")

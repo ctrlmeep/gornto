@@ -1,5 +1,6 @@
+import time
+
 def animated_print(text):
-    import time
 
     for char in text:
         print(char, end = '', flush = True)
@@ -76,4 +77,9 @@ def test_formatting():
     justify_text("This text is right aligned.", "right")
     justify_text("This text is center aligned.", "center")
 
-test_formatting()
+if __name__ == '__main__':
+    test_formatting()
+    for i in range(10):
+        print(progress_bar(i * 10) + "\r", end='')
+        time.sleep(0.5)
+    print(progress_bar(100))

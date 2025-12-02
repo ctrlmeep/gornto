@@ -13,7 +13,7 @@ print("If the sum of the Dice is 7, you win $4. Otherwise, you lose $1.")
 total = int(input("\nHow many dollars do you have? "))
 rolls = 0
 highestTotal = total
-highestRoll = rolls
+highestRoll = 0
 
 #chart header printing
 print("\nRoll:\tDie 1:\tDie 2:\tSum:\tBalance:")

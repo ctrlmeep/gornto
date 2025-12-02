@@ -1,8 +1,11 @@
-#Name: ############
-#Due Date: 12/3/25
-#Program Description:
-
-
+"""
+Name: ############
+Due Date: 12/3/25
+Program Description: Program that demonstrates the futility of playing
+Lucky Sevens by taking the input for the starting amount of money and
+showing that you will almost always lose your money fairly quickly
+"""
+#APIs
 import random
 
 #header printing

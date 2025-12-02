@@ -8,7 +8,7 @@ This repository contains my school assignments plus various mini-projects and ex
 
 ## 📁 Repository Structure
 
-- `assignments/` — Completed school assignments (mostly Python scripts or Kotlin projects).  
+- `assignments/` — Completed school assignments (mostly Python scripts).  
 - `learningKotlin/` — Personal experiments, practice projects, and learning exercises in Kotlin.  
 - `personal/` — Miscellaneous code, small utilities or side-projects that don’t fit under assignments.  
 

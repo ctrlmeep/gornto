@@ -11,8 +11,6 @@ This repository contains my school assignments plus various mini-projects and ex
 - `assignments/` — Completed school assignments (mostly Python scripts or Kotlin projects).  
 - `learningKotlin/` — Personal experiments, practice projects, and learning exercises in Kotlin.  
 - `personal/` — Miscellaneous code, small utilities or side-projects that don’t fit under assignments.  
-- `.gitignore` — Ignored files/folders (e.g. IDE/system metadata).  
-- `.idea/` — Project metadata (IDE configuration; you may consider removing or ignoring these).
 
 ---
 

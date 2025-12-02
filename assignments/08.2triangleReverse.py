@@ -1,4 +1,4 @@
-#Name: Benny Landon
+#Name: ************
 #Due Date: 10/29/25
 #Program Description: Asks for the side length of a triangle and prints a triangle using asterisks but reversed.
 

@@ -7,8 +7,6 @@
 # See the sample output from class.
 # Only one portion of the code below should be changed and you will see it "<here>"
 
-#working section
-
 #APIs
 import random
 

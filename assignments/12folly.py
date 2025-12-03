@@ -1,5 +1,5 @@
 """
-Name: ############
+Name: ************
 Due Date: 12/3/25
 Program Description: Program that demonstrates the futility of playing
 Lucky Sevens by taking the input for the starting amount of money and
@@ -23,6 +23,7 @@ print("\nRoll:\tDie 1:\tDie 2:\tSum:\tBalance:")
 print("-------\t-------\t-------\t-------\t-------")
 
 #chart printing and logic
+
 while total > 0:
     rolls += 1
     die1 = random.randint(1, 6)
@@ -42,6 +43,3 @@ while total > 0:
 #footer printing
 print("You are broke after " + str(rolls) + " rolls.")
 print("You should have quit after " + str(highestRoll) + " rolls when you had $" + str(highestTotal) + ".")
-
-
-

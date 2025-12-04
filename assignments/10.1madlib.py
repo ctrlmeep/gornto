@@ -72,25 +72,3 @@ print(adj3+" and because they have to work ", hours) #insert a random integer ge
 print("hours every day all year making enough " + pluralNoun4 + " to pay " )
 print("for the vacation.")
 
-##print(adj1)
-##print(adj2)
-##print(adj3)
-##
-##print(noun2)
-##print(noun3)
-##print(noun4)
-##
-##print(pluralNoun1)
-##print(pluralNoun2)
-##print(pluralNoun3)
-##print(pluralNoun4)
-##
-##print(ingVerb1)
-##print(ingVerb2)
-##print(ingVerb3)
-##print(ingVerb4)
-##
-##print(plant1)
-##print(bodyPart1)
-##print(place1)
-##print(game1)

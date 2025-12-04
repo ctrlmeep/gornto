@@ -1,10 +1,10 @@
 import tkinter as tk
 
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-operations = ["+", "-", "*", "/"]
+operations = ["+", "-", "x", "÷"]
 
 def pos_or_neg(num):
-    if float(num) < 0:
+    if num.startswith("-"):
         return False
     else: return True
 
@@ -12,139 +12,137 @@ class Calculator:
     def __init__(self):
         self.root = tk.Tk()
         self.setup_window()
-        self.display = ""
         self.num1 = ""
         self.num2 = ""
         self.operation = ""
-        self.stage = 1 #if 1, then typing num1, if 2, then typing operation, if 3, then typing num2
+        self.stage = 1 #if 1, then typing num1, if 2, then typing num2
         self.create_widgets()
+
+        #bring window to front and focus
+        self.root.lift()
+        self.root.attributes("-topmost", True)
+        self.root.focus_force()
 
     def setup_window(self):
         self.root.title("Calculator")
         self.root.geometry("300x400")
 
     def calculate(self):
+        if self.num1.endswith("."):
+            self.num1 = self.num1[:-1]
+        if self.num2.endswith("."):
+            self.num2 = self.num2[:-1]
+
+        if "%" in self.num1:
+            print("% found in num1, attempting to format")
+            self.num1.replace("%", "")
+            self.num1 = float(self.num1) / 100
+        if "%" in self.num2:
+            print("% found in num2, attempting to format")
+            self.num2.replace("%", "")
+            self.num2 = float(self.num2) / 100
+
+        if self.num1 == "-":
+            self.num1 = "-1"
+        if self.num2 == "-":
+            self.num2 = "-1"
+
         float1 = float(self.num1)
         float2 = float(self.num2)
-        if self.operation == "+":
-            self.display = float1 + float2
-        if self.operation == "-":
-            self.display = float1 - float2
-        if self.operation == "*":
-            self.display = float1 * float2
-        if self.operation == "/":
-            self.display = float1 / float2
-
-        self.display_label.config(text=self.display)
+        result = ""
+        if self.operation == "+": result = float1 + float2
+        elif self.operation == "-": result = float1 - float2
+        elif self.operation == "x": result = float1 * float2
+        elif self.operation == "÷": result = float1 / float2
+        else: print("Invalid operation")
+        if result.is_integer(): result = int(result)
+        result = str(result)
+        self.num1 = result
+        self.operation = ""
+        self.num2 = ""
+        self.stage = 1
 
     def staging_error(self):
         print(f"Something went wrong with staging, current in stage: {self.stage}")
 
     def button_clicked(self, value):
-
         if value in numbers:
             if self.stage == 1:
-                self.display += str(value)
                 self.num1 += str(value)
 
             elif self.stage == 2:
-                print("Number inputted into operation, nothing was done.")
-
-            elif self.stage == 3:
-                self.display += str(value)
                 self.num2 += str(value)
             else: self.staging_error()
 
         elif value in operations:
-            if self.stage == 2:
-                self.display += value
+            if self.stage == 1:
                 self.operation = value
-                self.stage = 3
+                self.stage = 2
+            elif self.stage == 2:
+                print("Input operation, nothing happened")
             else: self.staging_error()
 
         elif value == "DELETE":
-            if len(self.display) < 1: print("Nothing in entry, nothing was done. ")
-            else: self.display = self.display[:-1] #delete from overall display
-
             if self.stage == 1:
                 if len(self.num1) < 1:
                     print("Nothing in entry, nothing was done.")
                 else: self.num1 = self.num1[:-1]
 
             elif self.stage == 2:
-                if len(self.operation) < 1:
-                    print("Nothing in operation, deleting from num1.")
-                    self.num1 = self.num1[:-1]
-                else: self.operation = self.operation[:-1]
-
-            elif self.stage == 3:
                 if len(self.num2) < 1:
                     print("Nothing in num2, deleting from operation.")
-                    self.operation = self.operation[:-1]
+                    self.operation = ""
+                    self.stage = 1
                 else: self.num2 = self.num2[:-1]
 
             else: self.staging_error()
 
         elif value == "AC":
-            self.display = ""
             self.num1 = ""
             self.operation = ""
             self.num2 = ""
             self.stage = 1
 
         elif value == "%":
-            if self.stage == 1:
-                self.display += "%"
-                self.num1 /= 100
-
-            elif self.stage == 2:
-                print("Number modifier inputted into operation, nothing was done.")
-
-            elif self.stage == 3:
-                self.display += "%"
-                self.num2 /= 100
-
+            if self.stage == 1: self.num1 += "%"
+            elif self.stage == 2: self.num2 += "%"
             else: self.staging_error()
 
         elif value == ".":
-            if self.stage == 1:
-                self.display += "."
-                self.num1 += "."
-
-            elif self.stage == 2:
-                print("Number modifier inputted into operation, nothing was done.")
-
-            elif self.stage == 3:
-                self.display += "."
-                self.num2 += "."
-
+            if self.stage == 1: self.num1 += "."
+            elif self.stage == 2: self.num2 += "."
             else: self.staging_error()
 
         elif value == "+/-":
             if self.stage == 1:
                 if pos_or_neg(self.num1):
-                    self.display
+                    self.num1 = "-" + self.num1
+                else:
+                    self.num1 = self.num1[1:]
+            elif self.stage == 2:
+                if pos_or_neg(self.num2):
+                    self.num2 = "-" + self.num2
+                else:
+                    self.num2 = self.num2[1:]
+            else: self.staging_error()
 
+        elif value == "=": self.calculate()
+        else: print("Input error")
 
-
-
-        elif value == "=":
-            self.calculate()
-
-        self.display_label.config(text=self.display)
+        self.display_label.config(text=self.num1 + self.operation + self.num2)
 
         #debugging
         print("--------------")
-        print(self.display)
-        print(self.num1)
-        print(self.operation)
-        print(self.num2)
+        print(f"Num1: {self.num1}")
+        print(f"Operation: {self.operation}")
+        print(f"Num2: {self.num2}")
+        print(f"Stage: {self.stage}")
 
     def create_widgets(self):
         #display label
         self.display_label = tk.Label(
             self.root,
-            text=self.display,
+            text="",
             bg="gray",
             fg="black",
             font=("Arial", 12),
@@ -191,14 +189,14 @@ class Calculator:
         multiplication = tk.Button(
             self.root,
             text="x",
-            command=lambda: self.button_clicked("*"),
+            command=lambda: self.button_clicked("x"),
         )
         multiplication.grid(row=starting_row, column=starting_column + 3)
 
         division = tk.Button(
             self.root,
             text="÷",
-            command=lambda: self.button_clicked("/"),
+            command=lambda: self.button_clicked("÷"),
         )
         division.grid(row=starting_row - 1, column=starting_column + 3)
 

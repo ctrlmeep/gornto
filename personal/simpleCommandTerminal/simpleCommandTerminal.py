@@ -3,7 +3,7 @@ import os
 commandCatalog = {
     "rm": "Delete a file. Usage: rm <filename>",
     "mk": "Create a new file. Usage: mk <filename>",
-    "open": "Open a file in nano editor. Usage: nano <filename>",
+    "nano": "Open a file in nano editor. Usage: nano <filename>",
     "cd": "Change directory. Usage: goto <directory_path>",
     "mkdir": "Create a new directory. Usage: mkdir <directory_name>"
 }
@@ -23,8 +23,8 @@ def command_search(command):
         if args != "":
             if cmd == "mk":
                 mk(args)
-            if cmd == "open":
-                open_file(args)
+            if cmd == "nano":
+                nano(args)
             if cmd == "rm":
                 rm(args)
             if cmd == "cd":
@@ -41,7 +41,7 @@ def mk(command):
         pass
     print(f"\nCreated file: {command}")
 
-def open_file(command):
+def nano(command):
     """Open a file in nano editor specified in the command."""
     command_separation(command)
     print("\nEnter text to append (or type 'exit' to quit): ")

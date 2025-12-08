@@ -2,7 +2,7 @@
 Name: ************
 Due Date: 12/8/25
 Description:
-Write an application called ‘HumanTemp14’ that will help a person
+Write an application called ‘HumanTemp13’ that will help a person
 decide what medical treatment they should seek
 based on their temperature.
 This is a continuous run until told to stop. (not ‘one and done’)
@@ -29,35 +29,31 @@ decimal place). (in case it would like to be used in a country other
 than the US)
 """
 
-#lower temp in range is inclusive, upper is not inclusive
-
-#celsius = (fahrenheit - 32) * (5/9)
-
 choice = "yes"
-while choice.lower() == "yes":
+while choice.lower() == "yes" or choice.lower() == "y":
     patientTemp = float(input("\n\n\nWhat is the patient's temperature (in Fahrenheit)? "))
 
-    if patientTemp < 90:
+    if patientTemp < 90: #er
         print("\n**********************************************************")
         print("***Take the patient to the Emergency Room Immediately!!***")
         print("**********************************************************\n")
-    elif 90 <= patientTemp < 95:
+    elif 90 <= patientTemp < 95: #hypothermia
         print("The patient potentially has hypothermia!")
         print("Cover with blankets.")
         print("Monitor breathing.")
         print("Provide warm beverages!")
-    elif 95 <= patientTemp < 97.7:
+    elif 95 <= patientTemp < 97.7: #observation
         print("Observation necessary")
-    elif 97.7 <= patientTemp < 99.5:
+    elif 97.7 <= patientTemp < 99.5: #normal
         print("Normal")
-    elif 99.5 <= patientTemp < 100.9:
+    elif 99.5 <= patientTemp < 100.9: #observation
         print("Observation necessary")
-    elif 100.9 <= patientTemp < 105.5:
+    elif 100.9 <= patientTemp < 105.5: #fever
         print("The patient has a fever!")
         print("Rest and drink plenty of fluids. Medication is not needed.")
         print("Call the doctor if the fever is accompanied by a severe headache,")
         print("stiff neck, shortness of breath, or other unusual signs.")
-    else:
+    else: #er
         print("\n**********************************************************")
         print("***Take the patient to the Emergency Room Immediately!!***")
         print("**********************************************************\n")

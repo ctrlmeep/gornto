@@ -2,6 +2,7 @@ import tkinter as tk
 from idlelib.configdialog import font_sample_text
 
 from terminalFormatting import color_text as color
+from terminalFormatting import clear_screen as cs
 
 numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 operations = ["+", "-", "x", "÷"]
@@ -154,7 +155,7 @@ class Calculator:
         self.display_label.config(text=self.num1 + self.operation + self.num2)
 
         #debugging
-        print("--------------")
+        cs()
         print(f"Num1: {self.num1}")
         print(f"Operation: {self.operation}")
         print(f"Num2: {self.num2}")

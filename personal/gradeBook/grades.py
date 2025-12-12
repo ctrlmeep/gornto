@@ -70,6 +70,7 @@ if __name__ == "__main__":
         with open("gradebookBackUp.json", "w") as file:
             json.dump(students, file)
 
+    menuList = ["Add Student", "Add Grade", "Display Student's Grades", "Display Student's Grade Average", "Save Student's Grades", "Load Student's Grades (For debugging - Program automatically loads saved grades on start.)", "Clear/Delete Student's Grades", "Save and Exit", "Exit (Without Saving)", "Export"]
     while True:
         clear_screen()
         print()
@@ -80,16 +81,8 @@ if __name__ == "__main__":
         display_all()
         print("-" * headerBorderWidth)
         print("\nWhat would you like to do?\n")
-        print("1.\tAdd student")
-        print("2.\tAdd grade")
-        print("3.\tDisplay Student's Grades")
-        print("4.\tDisplay Student's Grade Average")
-        print("5.\tSave Student's Grades")
-        print("6.\tLoad Student's Grades (For debugging - Program automatically loads saved grades on start.)")
-        print("7.\tClear/Delete Student's Grades")
-        print("8.\tSave and Exit")
-        print("9.\tExit (Without Saving)")
-        print("10.\tExport")
+        for i in range(len(menuList)):
+            print(str(i + 1) + ".\t" + menuList[i])
         print("-" * headerBorderWidth)
         choice = input("Enter your choice: ").strip()
         if choice == "1": add_student(input("\nEnter student name: "))
@@ -118,3 +111,5 @@ if __name__ == "__main__":
         if choice == "10":
             print(f"\nCurrent directory: {os.getcwd()}")
             export_json()
+        else:
+            print("Invalid input, please enter a number 1-10.")
